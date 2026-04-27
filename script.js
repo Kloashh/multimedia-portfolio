@@ -217,26 +217,31 @@ function renderCelestialProfiles() {
     if (!container) return;
 
     container.innerHTML = celestialBodies.map(body => `
-        <article class="profile-card">
-            <div class="profile-card-header">
-                <span class="profile-icon">${body.icon}</span>
-                <div>
-                    <h3>${body.name}</h3>
-                    <p>${body.description}</p>
+        <div class="profile-card-row">
+            <article class="profile-card">
+                <div class="profile-card-header">
+                    <span class="profile-icon">${body.icon}</span>
+                    <div>
+                        <h3>${body.name}</h3>
+                        <p>${body.description}</p>
+                    </div>
                 </div>
+                <div class="profile-stats">
+                    <div class="profile-stat"><strong>Diameter</strong>${body.diameter}</div>
+                    <div class="profile-stat"><strong>Distance</strong>${body.distanceFromSun}</div>
+                    <div class="profile-stat"><strong>Orbit</strong>${body.orbitalPeriod}</div>
+                    <div class="profile-stat"><strong>Rotation</strong>${body.rotationPeriod}</div>
+                    <div class="profile-stat"><strong>Moons</strong>${body.moons}</div>
+                    <div class="profile-stat"><strong>Temp</strong>${body.temperature}</div>
+                </div>
+                <ul class="profile-facts">
+                    ${body.funFacts.map(fact => `<li>${fact}</li>`).join('')}
+                </ul>
+            </article>
+            <div class="profile-placeholder">
+                <p>Placeholder for ${body.name} video or GIF upload</p>
             </div>
-            <div class="profile-stats">
-                <div class="profile-stat"><strong>Diameter</strong>${body.diameter}</div>
-                <div class="profile-stat"><strong>Distance</strong>${body.distanceFromSun}</div>
-                <div class="profile-stat"><strong>Orbit</strong>${body.orbitalPeriod}</div>
-                <div class="profile-stat"><strong>Rotation</strong>${body.rotationPeriod}</div>
-                <div class="profile-stat"><strong>Moons</strong>${body.moons}</div>
-                <div class="profile-stat"><strong>Temp</strong>${body.temperature}</div>
-            </div>
-            <ul class="profile-facts">
-                ${body.funFacts.map(fact => `<li>${fact}</li>`).join('')}
-            </ul>
-        </article>
+        </div>
     `).join('');
 }
 

@@ -377,10 +377,17 @@ main {
 }
 
 .profiles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     margin-top: 2rem;
+}
+
+.profile-card-row {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 1.5rem;
+    align-items: start;
 }
 
 .profile-card {
@@ -447,6 +454,37 @@ main {
 
 .profile-facts li {
     margin-bottom: 0.5rem;
+}
+
+.profile-placeholder {
+    background: #f8f9ff;
+    border: 2px dashed rgba(102, 126, 234, 0.45);
+    border-radius: 15px;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    text-align: center;
+    color: #5a5f7a;
+}
+
+.profile-placeholder p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+    .profile-card-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-placeholder {
+        min-height: 220px;
+    }
 }
 
 /* Footer */
